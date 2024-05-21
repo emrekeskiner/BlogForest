@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BlogForest.EntityLayer.Concrete
+﻿namespace BlogForest.EntityLayer.Concrete
 {
     public class Blog
     {
@@ -16,6 +10,10 @@ namespace BlogForest.EntityLayer.Concrete
         public string? CoverImageUrl { get; set; }
         public string? Description { get; set; }
 
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
+        public int AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }
