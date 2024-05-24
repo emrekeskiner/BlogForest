@@ -2,7 +2,7 @@
 
 namespace BlogForest.WebUI.ViewComponents.DefaultViewComponents
 {
-    public class _HeadComponentPatrial:ViewComponent
+    public class _HeadComponentPartial:ViewComponent
     {
         public IViewComponentResult Invoke()
         {

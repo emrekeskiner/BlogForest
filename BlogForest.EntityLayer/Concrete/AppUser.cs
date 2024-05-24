@@ -7,6 +7,8 @@ namespace BlogForest.EntityLayer.Concrete
         public string? Name { get; set; }
         public string? Surname { get; set; }
         public string? ImageUrl { get; set; }
+        public string? Description { get; set; }
+
         public List<Blog> Blogs{ get; set; }
         public string FullName => string.Join(" ", Name, Surname);
     }

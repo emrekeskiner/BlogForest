@@ -8,7 +8,7 @@
                  <div class="blog-box row">
                 <div class="col-md-4">
                     <div class="post-media">
-                        <a href="garden-single.html" title="">
+                            <a href="/Blog/BlogDetail/@item.BlogId" title="">
                             <img src="@item.ThumbnailImageUrl" alt="" class="img-fluid">
                             <div class="hovereffect"></div>
                         </a>
@@ -16,12 +16,12 @@
                 </div><!-- end col -->
 
                 <div class="blog-meta big-meta col-md-8">
-                    <span class="bg-aqua"><a href="garden-category.html" title="">@item.CategoryId</a></span>
-                    <h4><a href="garden-single.html" title="">@item.Title</a></h4>
+                    <span class="bg-aqua"><a href="garden-category.html" title="">@item.Category.CategoryName</a></span>
+                        <h4><a href="/Blog/BlogDetail/@item.BlogId" title="">@item.Title</a></h4>
                     <p>@item.Description</p>
                     <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> @item.ViewCount</a></small>
                     <small><a href="garden-single.html" title="">@item.CreatedDate.ToString("dd.MMM.yyyy")</a></small>
-                    <small><a href="#" title="">@item.AppUserId</a></small>
+                    <small><a href="#" title="">@item.AppUser.FullName</a></small>
                 </div><!-- end meta -->
             </div>
 
