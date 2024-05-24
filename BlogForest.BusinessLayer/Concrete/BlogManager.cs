@@ -1,5 +1,6 @@
 ﻿using BlogForest.BusinessLayer.Abstract;
 using BlogForest.DataAccessLayer.Abstract;
+using BlogForest.DtoLayer.CategoryDtos;
 using BlogForest.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,11 @@ namespace BlogForest.BusinessLayer.Concrete
         public void TInsert(Blog entity)
         {
             throw new NotImplementedException();
+        }
+
+        public List<CategoryBlogCountDto> TNumberOfBlogsByCategory()
+        {
+            return _blogDal.NumberOfBlogsByCategory();
         }
 
         public void TUpdate(Blog entity)

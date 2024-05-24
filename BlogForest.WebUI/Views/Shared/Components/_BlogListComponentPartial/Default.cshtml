@@ -18,7 +18,27 @@
                 <div class="blog-meta big-meta col-md-8">
                     <span class="bg-aqua"><a href="garden-category.html" title="">@item.Category.CategoryName</a></span>
                         <h4><a href="/Blog/BlogDetail/@item.BlogId" title="">@item.Title</a></h4>
-                    <p>@item.Description</p>
+                        <p>
+                            @{
+                                if (string.IsNullOrEmpty(item.Description))
+                                {
+                                    
+                                }
+                                else
+                                {
+                                    if (item.Description.Length > 242)
+                                    {
+                                        @item.Description.Substring(0, 242)
+                                    }
+                                    else
+                                    {
+                                        @item.Description
+                                    }
+                                }
+                               
+
+                                }
+                        </p>
                     <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> @item.ViewCount</a></small>
                     <small><a href="garden-single.html" title="">@item.CreatedDate.ToString("dd.MMM.yyyy")</a></small>
                     <small><a href="#" title="">@item.AppUser.FullName</a></small>

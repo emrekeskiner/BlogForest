@@ -2,6 +2,7 @@
 using BlogForest.DataAccessLayer.Context;
 using BlogForest.DataAccessLayer.Repostories;
 using BlogForest.EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,12 @@ namespace BlogForest.DataAccessLayer.EntityFramework
 {
     public class EfCategoryDal : GenericRepostory<Category>, ICategoryDal
     {
+        private readonly BlogContext _blogContext;
         public EfCategoryDal(BlogContext context) : base(context)
         {
+            _blogContext = context;
         }
+
+      
     }
 }

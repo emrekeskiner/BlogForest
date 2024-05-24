@@ -14,7 +14,10 @@ namespace BlogForest.WebUI.ViewComponents.BlogViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var values = _blogService.TGetListAll().Take(3).ToList();
+            var values = _blogService.TGetListAll()
+                                .OrderByDescending(x=>x.BlogId)
+                                .Take(3)
+                                .ToList();
             return View(values);
         }
     }

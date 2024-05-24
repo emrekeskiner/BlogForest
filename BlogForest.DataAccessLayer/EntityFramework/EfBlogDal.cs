@@ -1,6 +1,7 @@
 ﻿using BlogForest.DataAccessLayer.Abstract;
 using BlogForest.DataAccessLayer.Context;
 using BlogForest.DataAccessLayer.Repostories;
+using BlogForest.DtoLayer.CategoryDtos;
 using BlogForest.EntityLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -26,6 +27,19 @@ namespace BlogForest.DataAccessLayer.EntityFramework
                                     .Include(y=>y.AppUser)
                                     .ToList();
             return values;
+        }
+
+         public List<CategoryBlogCountDto> NumberOfBlogsByCategory()
+        {
+            var categoryBlogCounts = _context.Categories
+             .Select(c => new CategoryBlogCountDto
+             {
+                 CategoryName = c.CategoryName,
+                 BlogCount = c.Blogs.Count
+             })
+             .ToList();
+
+            return categoryBlogCounts;
         }
     }
 }
