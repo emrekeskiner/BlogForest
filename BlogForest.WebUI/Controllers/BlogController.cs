@@ -15,8 +15,15 @@ namespace BlogForest.WebUI.Controllers
         public IActionResult BlogDetail(int id)
         {
             ViewBag.i = id;
-            ViewBag.userId = _blogService.TGetById(id).AppUserId;
+            //ViewBag.userId = _blogService.TGetById(id).AppUserId;
             return View();
+        }
+
+        public IActionResult BlogCategory(string CategoryName)
+        {
+
+            var value = _blogService.TGetBlogsWithCategoryAndUser().Where(x=>x.Category.CategoryName== CategoryName);
+            return View(value);
         }
     }
 }

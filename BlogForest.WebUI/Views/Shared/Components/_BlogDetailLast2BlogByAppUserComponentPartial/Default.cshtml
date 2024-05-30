@@ -1,0 +1,29 @@
+﻿@model List<Blog>
+
+<div class="custombox clearfix">
+    <h4 class="small-title">You may also like</h4>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+          <div class="col-lg-6">
+            <div class="blog-box">
+                <div class="post-media">
+                    <a href="/Blog/BlogDetail/@item.BlogId" title="@item.Title">
+                        <img src="@item.ThumbnailImageUrl" alt="" class="img-fluid">
+                        <div class="hovereffect">
+                            <span class=""></span>
+                        </div><!-- end hover -->
+                    </a>
+                </div><!-- end media -->
+                <div class="blog-meta">
+                        <h4><a href="garden-single.html" title="">@item.Title</a></h4>
+                    <small><a href="blog-category-01.html" title="">Yazar Adı - Kategori</a></small>
+                    <small><a href="blog-category-01.html" title="">@item.CreatedDate.ToString("dd MMM, yyyy")</a></small>
+                </div><!-- end meta -->
+            </div><!-- end blog-box -->
+        </div><!-- end col -->  
+        }
+        
+
+    </div><!-- end row -->
+</div><!-- end custom-box -->

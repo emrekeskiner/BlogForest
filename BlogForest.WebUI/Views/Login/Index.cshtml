@@ -1,0 +1,17 @@
+﻿@model CreateLoginDto
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<div class="container">
+    <br />
+    <form method="post">
+        <label>Kullanıcı Adı</label>
+        <input type="text" asp-for="Username" class="form-control mt-2" />
+
+        <label>Şifre</label>
+        <input type="password" asp-for="Password" class="form-control mt-2" />
+        <button class="btn btn-primary mt-2">Giriş Yap</button>
+    </form>
+</div>

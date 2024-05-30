@@ -12,8 +12,16 @@ namespace BlogForest.DataAccessLayer.EntityFramework
 {
     public class EfAppUserDal : GenericRepostory<AppUser>, IAppUserDal
     {
+        private readonly BlogContext _blogContext;
         public EfAppUserDal(BlogContext context) : base(context)
         {
+            _blogContext = context;
+        }
+
+        public AppUser GetAppUserDetail(int id)
+        {
+            var value = _blogContext.Blogs.Where(x => x.BlogId == id).Select(y=>y.AppUser).FirstOrDefault();
+            return value;
         }
     }
 }

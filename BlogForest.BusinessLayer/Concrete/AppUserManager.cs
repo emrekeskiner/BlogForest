@@ -20,7 +20,12 @@ namespace BlogForest.BusinessLayer.Concrete
 
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _appUserDal.Delete(id);
+        }
+
+        public AppUser TGetAppUserDetail(int id)
+        {
+            return _appUserDal.GetAppUserDetail(id);
         }
 
         public AppUser TGetById(int id)
@@ -30,17 +35,17 @@ namespace BlogForest.BusinessLayer.Concrete
 
         public List<AppUser> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _appUserDal.GetListAll();
         }
 
         public void TInsert(AppUser entity)
         {
-            throw new NotImplementedException();
+            _appUserDal.Insert(entity); 
         }
 
         public void TUpdate(AppUser entity)
         {
-            throw new NotImplementedException();
+           _appUserDal.Update(entity);
         }
     }
 }

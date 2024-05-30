@@ -20,6 +20,12 @@ namespace BlogForest.DataAccessLayer.EntityFramework
             _context = context;
         }
 
+        public List<Blog> GetBlogsByAppUser(int id)
+        {
+           var values = _context.Blogs.Where(x=>x.AppUserId == id).Include(y=>y.Category).ToList();
+            return values;
+        }
+
         public List<Blog> GetBlogsWithCategoryAndUser()
         {
             var values = _context.Blogs
@@ -29,7 +35,15 @@ namespace BlogForest.DataAccessLayer.EntityFramework
             return values;
         }
 
-         public List<CategoryBlogCountDto> NumberOfBlogsByCategory()
+        public List<Blog> GetLast2BlogByAppUser(int id)
+        {
+          int appUserId=_context.Blogs.Where(x=>x.BlogId == id).Select(y=>y.AppUserId).FirstOrDefault();
+           var values = _context.Blogs.Where(x=>x.AppUserId == appUserId)
+                .OrderByDescending(y=>y.BlogId).Take(2).ToList();
+            return values;
+        }
+
+        public List<CategoryBlogCountDto> NumberOfBlogsByCategory()
         {
             var categoryBlogCounts = _context.Categories
              .Select(c => new CategoryBlogCountDto
@@ -41,5 +55,7 @@ namespace BlogForest.DataAccessLayer.EntityFramework
 
             return categoryBlogCounts;
         }
+
+
     }
 }

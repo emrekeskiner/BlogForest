@@ -1,0 +1,27 @@
+﻿@model CreateBlogDto
+@{
+    ViewData["Title"] = "CreateBlog";
+    Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Yeni Blog Girişi</h1>
+
+
+<form method="post">
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>küçük Görsel</label>
+    <input type="text" asp-for="ThumbnailImageUrl" class="form-control" />
+    <br />
+    <label>Büyük Kapak Görseli</label>
+    <input type="text" asp-for="CoverImageUrl" class="form-control" />
+    <br />
+    <label>Açıklama</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <br />
+    <label>Kategori ID</label>
+    <input type="text" asp-for="CategoryId" class="form-control" />
+    <br />
+    <button class="btn btn-info">Blogu Oluştur</button>
+</form>

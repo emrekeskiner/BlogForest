@@ -14,7 +14,7 @@ namespace BlogForest.WebUI.ViewComponents.UserViewComponents
 
         public IViewComponentResult Invoke(int id)
         {
-            var values = _appUserService.TGetById(id);
+            var values = _appUserService.TGetAppUserDetail(id);
             return View(values);
         }
     }

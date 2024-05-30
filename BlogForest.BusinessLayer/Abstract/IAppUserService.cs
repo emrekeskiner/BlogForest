@@ -9,5 +9,6 @@ namespace BlogForest.BusinessLayer.Abstract
 {
     public interface IAppUserService:IGenericService<AppUser>
     {
+        public AppUser TGetAppUserDetail(int id);
     }
 }

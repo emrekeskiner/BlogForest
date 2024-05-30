@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("_HeadComponentPartial")
+<body>
+
+    <div id="wrapper">
+
+        @await Component.InvokeAsync("_TopbarComponentPartial")
+
+        @await Component.InvokeAsync("_NavbarComponentPartial")
+
+        <section class="section wb">
+            <div class="container">
+                <div class="row">
+                    @await Component.InvokeAsync("_BlogListComponentPartial")
+
+
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sidebar">
+
+
+                            @await Component.InvokeAsync("_SearchComponentPartial")
+                            @await Component.InvokeAsync("_RecentPostComponentPartial")
+                            @await Component.InvokeAsync("_NumberOfBlogsByCategoryComponentPartial")
+
+
+
+                        </div><!-- end sidebar -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section>
+
+        @await Component.InvokeAsync("_FooterComponentPartial")
+
+    </div><!-- end wrapper -->
+    <!-- Core JavaScript
+    ================================================== -->
+    <script src="~/forest-time/js/jquery.min.js"></script>
+    <script src="~/forest-time/js/tether.min.js"></script>
+    <script src="~/forest-time/js/bootstrap.min.js"></script>
+    <script src="~/forest-time/js/custom.js"></script>
+
+</body>
+</html>
+

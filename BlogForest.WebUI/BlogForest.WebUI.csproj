@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\sidebar-02\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\css\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\css\bootstrap\mixins\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\fonts\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\images\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\js\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\scss\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\scss\bootstrap\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.30">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -17,6 +30,11 @@
   <ItemGroup>
     <ProjectReference Include="..\BlogForest.BusinessLayer\BlogForest.BusinessLayer.csproj" />
     <ProjectReference Include="..\BlogForest.DtoLayer\BlogForest.DtoLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\User\Data\" />
+    <Folder Include="Areas\User\Models\" />
   </ItemGroup>
 
 </Project>

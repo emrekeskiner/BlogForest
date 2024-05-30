@@ -24,6 +24,11 @@ namespace BlogForest.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Blog> TGetBlogsByAppUser(int id)
+        {
+            return _blogDal.GetBlogsByAppUser(id);
+        }
+
         public List<Blog> TGetBlogsWithCategoryAndUser()
         {
             return _blogDal.GetBlogsWithCategoryAndUser();
@@ -34,6 +39,11 @@ namespace BlogForest.BusinessLayer.Concrete
             return _blogDal.GetById(id);
         }
 
+        public List<Blog> TGetLast2BlogByAppUser(int id)
+        {
+            return _blogDal.GetLast2BlogByAppUser(id);
+        }
+
         public List<Blog> TGetListAll()
         {
             return _blogDal.GetListAll();
@@ -41,7 +51,7 @@ namespace BlogForest.BusinessLayer.Concrete
 
         public void TInsert(Blog entity)
         {
-            throw new NotImplementedException();
+           _blogDal.Insert(entity);
         }
 
         public List<CategoryBlogCountDto> TNumberOfBlogsByCategory()

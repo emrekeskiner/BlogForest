@@ -7,5 +7,7 @@ namespace BlogForest.BusinessLayer.Abstract
     {
         public List<Blog> TGetBlogsWithCategoryAndUser();
         public List<CategoryBlogCountDto> TNumberOfBlogsByCategory();
+        public List<Blog> TGetLast2BlogByAppUser(int id);
+        List<Blog> TGetBlogsByAppUser(int id);
     }
 }
