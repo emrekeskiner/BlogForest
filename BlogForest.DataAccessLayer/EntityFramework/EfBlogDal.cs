@@ -43,6 +43,14 @@ namespace BlogForest.DataAccessLayer.EntityFramework
             return values;
         }
 
+        public void IncreaseBlogViewCount(int id)
+        {
+            var value = _context.Blogs.Where(x=> x.BlogId == id).FirstOrDefault();
+            value.ViewCount += 1;
+            _context.Blogs.Update(value);
+            _context.SaveChanges();
+        }
+
         public List<CategoryBlogCountDto> NumberOfBlogsByCategory()
         {
             var categoryBlogCounts = _context.Categories

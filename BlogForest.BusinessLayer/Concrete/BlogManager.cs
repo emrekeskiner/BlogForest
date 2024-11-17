@@ -49,6 +49,11 @@ namespace BlogForest.BusinessLayer.Concrete
             return _blogDal.GetListAll();
         }
 
+        public void TIncreaseBlogViewCount(int id)
+        {
+            _blogDal.IncreaseBlogViewCount(id);
+        }
+
         public void TInsert(Blog entity)
         {
            _blogDal.Insert(entity);

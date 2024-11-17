@@ -12,8 +12,23 @@ namespace BlogForest.DataAccessLayer.EntityFramework
 {
     public class EfCommentDal : GenericRepostory<Comment>, ICommentDal
     {
+        private readonly BlogContext _blogContext;
         public EfCommentDal(BlogContext context) : base(context)
         {
+            _blogContext = context;
         }
+
+        public List<Comment> GetCommentsByBlogId(int id)
+        {
+            var values = _blogContext.Comments.Where(x=>x.BlogId == id).ToList();
+            return values;
+        }
+
+        public int SumComments()
+        {
+            var value = _blogContext.Comments.Count();
+            return value;
+        }
+
     }
 }

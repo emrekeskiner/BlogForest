@@ -1,7 +1,7 @@
 ﻿@model List<Blog>
 
 <div class="custombox clearfix">
-    <h4 class="small-title">You may also like</h4>
+    <h4 class="small-title">Beğeneceğiniz Bloglar</h4>
     <div class="row">
         @foreach (var item in Model)
         {
@@ -17,7 +17,7 @@
                 </div><!-- end media -->
                 <div class="blog-meta">
                         <h4><a href="garden-single.html" title="">@item.Title</a></h4>
-                    <small><a href="blog-category-01.html" title="">Yazar Adı - Kategori</a></small>
+                        <small><a href="blog-category-01.html" title="">@item.AppUser.FullName - @item.Category.CategoryName </a></small>
                     <small><a href="blog-category-01.html" title="">@item.CreatedDate.ToString("dd MMM, yyyy")</a></small>
                 </div><!-- end meta -->
             </div><!-- end blog-box -->

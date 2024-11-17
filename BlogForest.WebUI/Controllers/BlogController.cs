@@ -16,6 +16,7 @@ namespace BlogForest.WebUI.Controllers
         {
             ViewBag.i = id;
             //ViewBag.userId = _blogService.TGetById(id).AppUserId;
+            _blogService.TIncreaseBlogViewCount(id);
             return View();
         }
 

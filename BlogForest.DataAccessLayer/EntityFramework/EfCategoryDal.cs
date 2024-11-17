@@ -19,6 +19,12 @@ namespace BlogForest.DataAccessLayer.EntityFramework
             _blogContext = context;
         }
 
-      
+        public List<Comment> GetCommentsByBlogId(int id)
+        {
+            var values = _blogContext.Comments
+                .Where(y=>y.BlogId == id)
+                .ToList();
+            return values;
+        }
     }
 }
