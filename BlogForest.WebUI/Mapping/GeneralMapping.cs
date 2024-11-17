@@ -8,8 +8,7 @@ namespace BlogForest.WebUI.Mapping
 	{
         public GeneralMapping()
         {
-            CreateMap<Blog, CreateBlogDto>();
-            CreateMap<CreateBlogDto, Blog>();
+            CreateMap<Blog, CreateBlogDto>().ReverseMap();
         }
     }
 }

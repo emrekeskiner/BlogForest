@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -7,7 +6,6 @@
 <html lang="en">
 @await Component.InvokeAsync("_HeadComponentPartial")
 <body>
-
     <div id="wrapper">
 
         @await Component.InvokeAsync("_TopbarComponentPartial")
@@ -17,7 +15,7 @@
         <section class="section wb">
             <div class="container">
                 <div class="row">
-                    @await Component.InvokeAsync("_BlogListWithCategoryComponentPartial", new { CategoryName = ViewBag.CategoryName })
+                    @await Component.InvokeAsync("_BlogListWithSearchComponentPartial", new { search = ViewBag.search })
 
 
                     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">

@@ -1,0 +1,73 @@
+﻿@model List<Blog>
+<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+    <div class="page-wrapper">
+        <div class="blog-list clearfix">
+
+            @foreach (var item in Model)
+            {
+                <div class="blog-box row">
+                    <div class="col-md-4">
+                        <div class="post-media">
+                            <a href="/Blog/BlogDetail/@item.BlogId" title="">
+                                <img src="@item.ThumbnailImageUrl" alt="" class="img-fluid">
+                                <div class="hovereffect"></div>
+                            </a>
+                        </div><!-- end media -->
+                    </div><!-- end col -->
+
+                    <div class="blog-meta big-meta col-md-8">
+                        <span class="bg-aqua"><a href="garden-category.html" title="">@item.Category.CategoryName</a></span>
+                        <h4><a href="/Blog/BlogDetail/@item.BlogId" title="">@item.Title</a></h4>
+                        <p>
+                            @{
+                                if (string.IsNullOrEmpty(item.Description))
+                                {
+
+                                }
+                                else
+                                {
+                                    if (item.Description.Length > 242)
+                                    {
+                                        @item.Description.Substring(0, 242)
+                                    }
+                                    else
+                                    {
+                                        @item.Description
+                                    }
+                                }
+
+
+                            }
+                        </p>
+                        <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> @item.ViewCount</a></small>
+                        <small><a href="garden-single.html" title="">@item.CreatedDate.ToString("dd.MMM.yyyy")</a></small>
+                        <small><a href="#" title="">@item.AppUser.FullName</a></small>
+                    </div><!-- end meta -->
+                </div>
+
+                <hr class="invis">
+            }
+
+
+
+
+        </div><!-- end blog-list -->
+    </div><!-- end page-wrapper -->
+
+    <hr class="invis">
+
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-start">
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div><!-- end col -->
+    </div><!-- end row -->
+</div><!-- end col -->

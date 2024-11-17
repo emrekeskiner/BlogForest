@@ -3,9 +3,11 @@ using BlogForest.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BlogForest.WebUI.Controllers
+namespace BlogForest.WebUI.Areas.Writer.Controllers
 {
-    public class LoginController : Controller
+    [Area("Writer")]
+   [Route("Writer/[controller]/[action]")]
+    public class LoginController:Controller
     {
         private readonly SignInManager<AppUser> _signInManager;
 
@@ -13,6 +15,7 @@ namespace BlogForest.WebUI.Controllers
         {
             _signInManager = signInManager;
         }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -20,14 +23,17 @@ namespace BlogForest.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(LoginDto createLoginDto)
+        public async Task<IActionResult> Index(LoginDto loginDto)
         {
-            var result = await _signInManager.PasswordSignInAsync(createLoginDto.Username, createLoginDto.Password,false,false);
+
+            var result = await _signInManager.PasswordSignInAsync(loginDto.Username, loginDto.Password, false, false);
             if (result.Succeeded)
-            { 
-            return RedirectToAction("UserProfile","Profile", new {area = "Writer"});
+            {
+                return RedirectToAction("MyBlogs", "Blog", new { area = "Writer" });
             }
+
             return View();
         }
+
     }
 }

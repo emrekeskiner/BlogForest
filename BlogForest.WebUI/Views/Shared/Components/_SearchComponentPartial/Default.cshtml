@@ -1,9 +1,9 @@
 ﻿
 <div class="widget">
     <h2 class="widget-title">Arama</h2>
-    <form class="form-inline search-form">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Blog'da ara">
+    <form class="form-inline search-form" asp-controller="Blog" asp-action="BlogSearch" method="get">
+        <div class="form-group" >
+            <input type="text" class="form-control" placeholder="Blog'da ara" name="search">
         </div>
         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
     </form>

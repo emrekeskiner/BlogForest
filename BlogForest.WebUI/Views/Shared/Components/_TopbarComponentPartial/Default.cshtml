@@ -2,8 +2,8 @@
 <div class="collapse top-search" id="collapseExample">
     <div class="card card-block">
         <div class="newsletter-widget text-center">
-            <form class="form-inline">
-                <input type="text" class="form-control" placeholder="Aramak istediğiniz kelimeleri giriniz.">
+            <form class="form-inline" asp-controller="Blog" asp-action="BlogSearch" method="get">
+                <input type="text" class="form-control" name="search" placeholder="Aramak istediğiniz kelimeleri giriniz.">
                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
             </form>
         </div><!-- end newsletter -->
@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="logo">
-                    <a href="garden-index.html"><img src="~/forest-time/images/version/garden-logo.png" alt=""></a>
+                    <a href="/Default/Index"><img src="~/forest-time/images/version/Antik_kentler_logo_main.png" alt="Antik Kentler"></a>
                 </div><!-- end logo -->
             </div>
         </div><!-- end row -->

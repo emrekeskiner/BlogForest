@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+@await Component.InvokeAsync("_WriterHeaderComponent")
+<body id="page-top">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        @await Component.InvokeAsync("_WriterSidebarComponent")
+        
+        <!-- Sidebar -->
+        <div id="content-wrapper" class="d-flex flex-column">
+           
+                <!-- Navbar -->
+                @await Component.InvokeAsync("_WriterNavbarComponent")
+                
+               
+                <!-- Container Fluid-->
+                <div class="container-fluid" id="container-wrapper">
+                    <!-- BreadCrumb-->
+                    @await Component.InvokeAsync("_WriterBreadcrumbComponent")
+
+                    @RenderBody()
+                    <!--Row-->
+                </div>
+                <!---Container Fluid-->
+           
+            <!-- Footer -->
+            @await Component.InvokeAsync("_WriterFooterComponent")
+            
+            <!-- Footer -->
+        </div>
+    </div>
+
+    <!-- Script -->
+    @await Component.InvokeAsync("_WriterScriptComponent")
+
+</body>
+
+</html>
