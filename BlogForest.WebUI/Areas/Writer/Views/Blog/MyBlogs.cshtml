@@ -28,8 +28,8 @@
                             <td>@item.ViewCount</td>
                             <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
                             <td>
-                                <a class="btn btn-warning"><i class="fas fa-edit" style="color:white;"></i></a>
-                                <a class="btn btn-danger"><i class="fas fa-trash" style="color:white;"></i></a>
+                                <a class="btn btn-warning" href="/Writer/Blog/UpdateMyBlog/@item.BlogId"><i class="fas fa-edit" style="color:white;"></i></a>
+                                <a class="btn btn-danger" href="/Writer/Blog/DeleteMyBlog/@item.BlogId"><i class="fas fa-trash" style="color:white;"></i></a>
                                 <a class="btn btn-success" href="/Blog/BlogDetail/@item.BlogId"><i class="fas fa-eye" style="color:white;"></i></a>
                             </td>
 

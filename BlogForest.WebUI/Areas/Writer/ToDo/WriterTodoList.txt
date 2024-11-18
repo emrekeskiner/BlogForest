@@ -1,7 +1,7 @@
 1- Writer Login  *Yapýldý
 2- Writer Blog Controller *Oluþturuldu
-3- Writer MyBlogs kiþinin kendi yazdýðý bloglarý görmesi saðlanacak 
-4- Writer CreateMyBlog, UpdateMyBlog, DeleteMyBlog (delete iþlemi olmayacak sadece status false duruma getirilecek) Writer blog yazmasý saðlanacak
+3- Writer MyBlogs kiþinin kendi yazdýðý bloglarý görmesi saðlanacak * Yapýldý
+4- Writer CreateMyBlog *ok, UpdateMyBlog *ok, DeleteMyBlog *ok
 5- Writer Dashboard yapýlacak Toplam Blog sayýsý, Kendi Yazdýðý blog sayýsý, Yazdýðý bloklarýn toplam okunma sayýsý, bir partial ile hangi bloðu kaç adet okunmuþ onun görülmesi.
 6- Bloglarýna gelen mesajlarý görme ve görünmesini engelleme ve açma 
 7- Diðer Writerlar ile mesajlaþma 

@@ -21,7 +21,7 @@ namespace BlogForest.BusinessLayer.Concrete
 
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _blogDal.Delete(id);
         }
 
         public List<Blog> TGetBlogsByAppUser(int id)
@@ -66,7 +66,7 @@ namespace BlogForest.BusinessLayer.Concrete
 
         public void TUpdate(Blog entity)
         {
-            throw new NotImplementedException();
+            _blogDal.Update(entity);
         }
     }
 }
