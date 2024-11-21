@@ -13,5 +13,6 @@ namespace BlogForest.DataAccessLayer.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Issue> Issues { get; set; }
     }
 }

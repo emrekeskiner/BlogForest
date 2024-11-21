@@ -15,6 +15,8 @@ builder.Services.AddScoped<IBlogService, BlogManager>();
 builder.Services.AddScoped<IBlogDal, EfBlogDal>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
+builder.Services.AddScoped<IIssueService, IssueManager>();
+builder.Services.AddScoped<IIssueDal, EfIssueDal>();
 
 builder.Services.AddScoped<ICommentDal, EfCommentDal>();
 builder.Services.AddScoped<ICommentService,CommentManager>();

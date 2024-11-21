@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BlogForest.DtoLayer.BlogDtos;
+using BlogForest.DtoLayer.IssueDto;
 using BlogForest.EntityLayer.Concrete;
 
 namespace BlogForest.WebUI.Mapping
@@ -10,6 +11,7 @@ namespace BlogForest.WebUI.Mapping
         {
             CreateMap<Blog, CreateBlogDto>().ReverseMap();
             CreateMap<Blog, UpdateBlogDto>().ReverseMap();
+            CreateMap<Issue, ResultIssueDto>().ReverseMap();
         }
     }
 }
