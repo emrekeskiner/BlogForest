@@ -9,7 +9,7 @@ Yazdýðý bloklarýn toplam okunma sayýsý ok, En çok okunan son 3 blog *ok.
 8- Sistem hatalarýný yönetime bildirme, listeleme *ok ve Kategori açma isteði, sorun ekleme , yanýtlanmamýþsa sorun düzeltme 
 
 9- Çýkýþ iþlemleri
-
+10 - blog yazma ekranýnda editör ekleme
 
 
 

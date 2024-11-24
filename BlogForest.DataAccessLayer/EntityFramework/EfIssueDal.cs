@@ -22,7 +22,9 @@ namespace BlogForest.DataAccessLayer.EntityFramework
 
         public List<Issue> GetIssuesWithUser()
         {
-            var value = _context.Issues.Include(x => x.AppUser)
+            var value = _context.Issues
+                .Include(x => x.ReportedByUser)
+                .Include(y => y.AdminUser)
                 .ToList();
             return value;
         }

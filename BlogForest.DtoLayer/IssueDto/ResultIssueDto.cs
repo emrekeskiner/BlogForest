@@ -14,5 +14,8 @@
         public string? AdminComments { get; set; }
         public string? AdminUserId { get; set; }
         public int AppUserId { get; set; }
+        public string? ReportedByUser { get; set; }
+        public string? AdminUser { get; set; }
+        public string? AdminFullName { get; set; } // Yeni özellik
     }
 }

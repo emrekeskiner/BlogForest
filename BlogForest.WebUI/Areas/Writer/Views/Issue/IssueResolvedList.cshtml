@@ -1,15 +1,15 @@
 ﻿@model List<BlogForest.DtoLayer.IssueDto.ResultIssueDto>
 @{
-    ViewData["Title"] = "Sorun Listesi";
+    ViewData["Title"] = "Çözülen Sorunlar";
     Layout = "~/Views/Layout/_WriterLayout.cshtml";
 }
 
 <div class="col-xl-12 col-lg-7 mb-4">
     <div class="card">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Bekleyen Sorunlar</h6>
-            <a class="m-0 float-right btn btn-danger btn-sm" href="/Writer/Issue/IssueResolvedList">
-                Çözülen Sorunlar <i class="fas fa-chevron-right"></i>
+            <h6 class="m-0 font-weight-bold text-primary">Çözülen Sorunlar</h6>
+            <a class="m-0 float-right btn btn-danger btn-sm" href="/Writer/Issue/IssueList">
+                Bekleyen Sorunlar <i class="fas fa-chevron-right"></i>
             </a>
         </div>
         <div class="table-responsive">
@@ -19,16 +19,19 @@
                         <th>Sorun Başlık</th>
                         <th>Tarih</th>
                         <th>Durum</th>
+                        <th>Çözümleyen</th>
                         <th>İşlemler</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
                             <td>@item.Title</td>
                             <td>@item.CreatedAt.ToString("dd.MM.yyyy")</td>
-                            <td>@if(item.IsResolved==true)
+                            <td>
+                                @if (item.IsResolved)
                                 {
                                     <span class="badge badge-success">Yanıtlandı</span>
                                 }
@@ -36,10 +39,8 @@
                                 {
                                     <span class="badge badge-danger">Beklemede</span>
                                 }
-                                
-                               
-                                
                             </td>
+                            <td>@item.AdminFullName</td>
                             <td>
                                 <!-- Modal Trigger Button -->
                                 <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#issueModal-@item.IssueId">
@@ -96,7 +97,32 @@
                                             <p class="form-control-plaintext">@item.Description</p>
                                         </div>
 
-                                      
+                                        <!-- Çizgi -->
+                                        <hr />
+
+                                        <!-- Çözüm Tarihi ve Çözümleyen -->
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <div>
+                                                <label><strong>Çözüm Tarihi:</strong></label>
+                                                <p class="form-control-plaintext">@item.ResolvedAt?.ToString("dd.MM.yyyy HH:mm")</p>
+                                            </div>
+                                            <div>
+                                                <label><strong>Çözümleyen:</strong></label>
+                                                <p class="form-control-plaintext">@item.AdminFullName</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Çözüm Detayları -->
+                                        <div class="mb-3">
+                                            <label><strong>Çözüm Detayları:</strong></label>
+                                            <p class="form-control-plaintext">@item.ResolutionDetails</p>
+                                        </div>
+
+                                        <!-- Yönetici Yorumları -->
+                                        <div class="mb-3">
+                                            <label><strong>Yönetici Yorumları:</strong></label>
+                                            <p class="form-control-plaintext">@item.AdminComments</p>
+                                        </div>
                                     </div>
                                     <!-- Modal Footer -->
                                     <div class="modal-footer">
@@ -107,9 +133,8 @@
                         </div>
 
                     }
-
-
                 </tbody>
+
             </table>
         </div>
         <div class="card-footer"></div>

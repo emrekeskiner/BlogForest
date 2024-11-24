@@ -10,10 +10,11 @@ namespace BlogForest.EntityLayer.Concrete
             public string? ResolutionDetails { get; set; } 
             public DateTime CreatedAt { get; set; } = DateTime.Now;
             public DateTime? ResolvedAt { get; set; } 
-            public string ReportedByUserId { get; set; } 
+            public int ReportedByUserId { get; set; } 
             public string? AdminComments { get; set; }
-            public string? AdminUserId { get; set; }
-            public AppUser AppUser { get; set; }
+            public int? AdminUserId { get; set; }
+            public AppUser ReportedByUser { get; set; }
+            public AppUser? AdminUser { get; set; }
 
 
     

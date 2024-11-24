@@ -9,8 +9,9 @@ namespace BlogForest.EntityLayer.Concrete
         public string? ImageUrl { get; set; }
         public string? Description { get; set; }
 
-        public List<Blog> Blogs{ get; set; }
-        public List<Issue> Issues{ get; set; }
-        public string FullName => string.Join(" ", Name, Surname);
+        public List<Blog> Blogs{ get; set; } // Bloglar
+        public List<Issue> IssuesReported { get; set; }
+        public List<Issue>? IssuesResolved { get; set; }
+        public string FullName => string.Join(" ", Name, Surname); // Ad , Soyad birleştir
     }
 }
