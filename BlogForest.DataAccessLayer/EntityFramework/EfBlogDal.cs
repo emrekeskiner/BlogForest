@@ -57,7 +57,7 @@ namespace BlogForest.DataAccessLayer.EntityFramework
              .Select(c => new CategoryBlogCountDto
              {
                  CategoryName = c.CategoryName,
-                 BlogCount = c.Blogs.Count
+                 BlogCount = c.Blogs.Where(x=>x.Status==true).Count()
              })
              .ToList();
 

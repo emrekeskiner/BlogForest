@@ -18,13 +18,15 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
         private readonly IBlogService _blogService;
         private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public BlogController(UserManager<AppUser> userManager, IBlogService blogService, IMapper mapper, ICategoryService categoryService)
+        public BlogController(UserManager<AppUser> userManager, IBlogService blogService, IMapper mapper, ICategoryService categoryService, IWebHostEnvironment webHostEnvironment)
         {
             _userManager = userManager;
             _blogService = blogService;
             _mapper = mapper;
             _categoryService = categoryService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<IActionResult> MyBlogs()
@@ -62,6 +64,30 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
 
             ViewBag.category = category;
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult UploadCKEDITOR(IFormFile upload)
+        {
+            if (upload != null && upload.Length > 0)
+            {
+                var fileName = DateTime.Now.ToString("yyyyMMddHHmmss")+upload.FileName;
+                var path= Path.Combine(Directory.GetCurrentDirectory(),_webHostEnvironment.WebRootPath,"uploads",fileName);
+                var str = new FileStream(path, FileMode.Create);
+                upload.CopyToAsync(str);
+                var url = $"{"/uploads/"}{fileName}";
+                return Json(new { uploaded = true,url });
+
+            }
+            return Json(new { path = "/uploads/" });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> FileBrowserCKEDITOR(IFormFile upload)
+        {
+            var dir = new DirectoryInfo(Path.Combine(Directory.GetCurrentDirectory(),_webHostEnvironment.WebRootPath,"uploads"));
+            ViewBag.fileInfo = dir.GetFiles();
+            return View("FileBrowserCKEDITOR");
         }
 
         [HttpPost]
@@ -111,6 +137,23 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
         {
           
             _blogService.TDelete(id);
+            return RedirectToAction("MyBlogs", "Blog", new { area = "Writer" });
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult ChangeStatusMyBlog(int id)
+        {
+            var getBlog= _blogService.TGetById(id);
+            if (getBlog.Status == true)
+            {
+                getBlog.Status = false;
+               
+            }
+            else
+            {
+                getBlog.Status= true;
+            }
+            _blogService.TUpdate(getBlog);
             return RedirectToAction("MyBlogs", "Blog", new { area = "Writer" });
         }
 

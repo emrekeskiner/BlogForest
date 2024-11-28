@@ -9,6 +9,7 @@
         public int? ViewCount { get; set; }
         public string? CoverImageUrl { get; set; }
         public string? Description { get; set; }
+        public bool Status { get; set; } = false;
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }

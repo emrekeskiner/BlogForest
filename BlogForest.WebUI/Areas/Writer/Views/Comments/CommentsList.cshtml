@@ -1,0 +1,87 @@
+﻿@model List<BlogForest.DtoLayer.CommentDto.ResultCommentDto>
+@{
+    ViewData["Title"] = "Yorumlar";
+    Layout = "~/Views/Layout/_WriterLayout.cshtml";
+}
+
+<div class="col-xl-12 col-lg-7 mb-4">
+    <div class="card">
+       
+        <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Blog</th>
+                        <th>Yorum Yapan</th>
+                        <th>Tarih</th>
+                        <th>Durum</th>
+                        <th>Detay</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.BlogTitle</td>
+                            <td>@item.NameSurname</td>
+                            <td>@item.CommentDate.ToString("dd.MM.yyyy")</td>
+                            <td>
+                                @if (item.Status == false)
+                                {
+                                    <a class="btn btn-sm btn-dark" href="/Writer/Comments/ChangeStatusComment/@item.CommentId">Pasif <i class="fas fa-exclamation-triangle" style="color:white;"></i> </a>
+
+                                }
+                                else
+                                {
+                                    <a class="btn btn-sm btn-success" href="/Writer/Comments/ChangeStatusComment/@item.CommentId">Aktif <i class="fas fa-check" style="color:white;"></i></a>
+                                }
+                            </td>
+
+                            <td>
+                                <!-- Modal Trigger Button -->
+                                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#commentModal-@item.CommentId">
+                                    <i class="fas fa-eye"></i> Detay
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="commentModal-@item.CommentId" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel-@item.CommentId" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="commentModalLabel-@item.CommentId">Yorum</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Kapat">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <!-- Modal Body -->
+                                    <div class="modal-body">
+                                        <!-- Üst Bilgi -->
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <div>
+                                                <p class="form-control-plaintext">@item.Detail</p>
+                                            </div>
+                                           
+                                        </div>
+
+                                    </div>
+                                    <!-- Modal Footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer"></div>
+    </div>
+</div>
+

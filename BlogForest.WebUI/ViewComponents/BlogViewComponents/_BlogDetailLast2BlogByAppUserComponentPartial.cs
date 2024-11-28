@@ -15,7 +15,7 @@ namespace BlogForest.WebUI.ViewComponents.BlogViewComponents
 
         public IViewComponentResult Invoke(int id)
         {
-            var values = _blogService.TGetLast2BlogByAppUser(id);
+            var values = _blogService.TGetLast2BlogByAppUser(id).Where(x=>x.Status==true);
             return View(values);
         }
     }

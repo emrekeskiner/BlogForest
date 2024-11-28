@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BlogForest.DtoLayer.BlogDtos;
+using BlogForest.DtoLayer.CommentDto;
 using BlogForest.DtoLayer.IssueDto;
 using BlogForest.EntityLayer.Concrete;
 
@@ -17,6 +18,8 @@ namespace BlogForest.WebUI.Mapping
      .ForMember(dest => dest.AdminFullName, opt => opt.MapFrom(src => src.AdminUser != null ? src.AdminUser.Name + " " + src.AdminUser.Surname : null));
             CreateMap<Issue, CreateWriterIssueDto>().ReverseMap();
             CreateMap<Issue, UpdateWriterIssueDto>().ReverseMap();
+
+            CreateMap<Comment, ResultCommentDto>().ForMember(dest=> dest.BlogTitle, opt => opt.MapFrom(src =>src.Blog.Title));
         }
     }
 }

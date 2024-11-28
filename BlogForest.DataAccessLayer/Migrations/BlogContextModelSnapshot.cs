@@ -155,6 +155,9 @@ namespace BlogForest.DataAccessLayer.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ThumbnailImageUrl")
                         .HasColumnType("nvarchar(max)");
 

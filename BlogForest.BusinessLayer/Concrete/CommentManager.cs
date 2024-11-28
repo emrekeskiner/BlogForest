@@ -33,6 +33,11 @@ namespace BlogForest.BusinessLayer.Concrete
             return _commentDal.GetCommentsByBlogId(id);
         }
 
+        public List<Comment> TGetCommentWithBlog()
+        {
+           return _commentDal.GetCommentWithBlog();
+        }
+
         public List<Comment> TGetListAll()
         {
             return _commentDal.GetListAll();
@@ -43,9 +48,9 @@ namespace BlogForest.BusinessLayer.Concrete
             _commentDal.Insert(entity);
         }
 
-        public int TSumComments()
+        public int TSumComments(int id)
         {
-            return _commentDal.SumComments();
+            return _commentDal.SumComments(id);
         }
 
         public void TUpdate(Comment entity)

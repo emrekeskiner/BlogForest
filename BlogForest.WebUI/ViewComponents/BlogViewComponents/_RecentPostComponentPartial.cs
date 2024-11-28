@@ -14,7 +14,7 @@ namespace BlogForest.WebUI.ViewComponents.BlogViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var values = _blogService.TGetListAll()
+            var values = _blogService.TGetListAll().Where(x=>x.Status==true)
                                 .OrderByDescending(x=>x.BlogId)
                                 .Take(3)
                                 .ToList();

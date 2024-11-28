@@ -15,7 +15,7 @@ namespace BlogForest.WebUI.ViewComponents.BlogViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var value = _blogService.TGetBlogsWithCategoryAndUser();
+            var value = _blogService.TGetBlogsWithCategoryAndUser().Where(x=>x.Status==true).ToList();
             return View(value);
         }
     }

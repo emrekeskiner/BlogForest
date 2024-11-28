@@ -19,7 +19,7 @@ namespace BlogForest.WebUI.ViewComponents.BlogViewComponents
             var values = _blogService.TGetBlogsWithCategoryAndUser()
                 .Where(x=> x.Title.ToLower().Contains(search.ToLower()) ||
                         x.Description.ToLower().Contains(search.ToLower()) ||
-                        x.Category.CategoryName.ToLower().Contains(search.ToLower())).ToList();
+                        x.Category.CategoryName.ToLower().Contains(search.ToLower()) && x.Status==true).ToList();
                 
 
             return View(values);

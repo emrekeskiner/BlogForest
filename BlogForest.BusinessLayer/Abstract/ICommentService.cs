@@ -10,6 +10,8 @@ namespace BlogForest.BusinessLayer.Abstract
     public interface ICommentService:IGenericService<Comment>
     {
         List<Comment> TGetCommentsByBlogId(int id);
-        int TSumComments();
+        int TSumComments(int id);
+
+        List<Comment> TGetCommentWithBlog();
     }
 }

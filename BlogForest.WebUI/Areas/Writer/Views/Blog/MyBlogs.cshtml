@@ -15,6 +15,7 @@
                         <th>Kategori</th>
                         <th>Gösterim Sayısı</th>
                         <th>Tarih</th>
+                        <th>Durum</th>
                         <th>İşlemler</th>
                     </tr>
                 </thead>
@@ -27,6 +28,17 @@
                             <td>@item.Category.CategoryName</td>
                             <td>@item.ViewCount</td>
                             <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
+                            <td>
+                                @if (item.Status == false)
+                                {
+                                     <a class="btn btn-dark" href="/Writer/Blog/ChangeStatusMyBlog/@item.BlogId">Pasif <i class="fas fa-exclamation-triangle" style="color:white;"></i> </a>
+                                   
+                                }
+                                else
+                                {
+                                             <a class="btn btn-success" href="/Writer/Blog/ChangeStatusMyBlog/@item.BlogId">Aktif <i class="fas fa-check" style="color:white;"></i></a>
+                                }
+                                </td>
                             <td>
                                 <a class="btn btn-warning" href="/Writer/Blog/UpdateMyBlog/@item.BlogId"><i class="fas fa-edit" style="color:white;"></i></a>
                                 <a class="btn btn-danger" href="/Writer/Blog/DeleteMyBlog/@item.BlogId"><i class="fas fa-trash" style="color:white;"></i></a>

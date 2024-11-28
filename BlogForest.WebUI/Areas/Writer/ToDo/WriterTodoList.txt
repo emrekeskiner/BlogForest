@@ -1,15 +1,8 @@
-1- Writer Login  *Yapýldý
-2- Writer Blog Controller *Oluþturuldu
-3- Writer MyBlogs kiþinin kendi yazdýðý bloglarý görmesi saðlanacak * Yapýldý
-4- Writer CreateMyBlog *ok, UpdateMyBlog *ok, DeleteMyBlog *ok
-5- Writer Dashboard yapýlacak Toplam Blog sayýsý *ok, Kendi Yazdýðý blog sayýsý ok, 
-Yazdýðý bloklarýn toplam okunma sayýsý ok, En çok okunan son 3 blog *ok.
-6- Bloglarýna gelen mesajlarý görme ve görünmesini engelleme ve açma 
-7- Diðer Writerlar ile mesajlaþma 
-8- Sistem hatalarýný yönetime bildirme, listeleme *ok ve Kategori açma isteði, sorun ekleme , yanýtlanmamýþsa sorun düzeltme 
 
+5- admin ekranýnda issue onay ekraný
+7- Yorum Yapmayý Kodla
+8- Seo Url yapma
 9- Çýkýþ iþlemleri
-10 - blog yazma ekranýnda editör ekleme
 
 
 

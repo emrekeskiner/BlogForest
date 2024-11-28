@@ -15,7 +15,7 @@ namespace BlogForest.WebUI.ViewComponents.BlogViewComponents
         public IViewComponentResult Invoke(int id)
         {
             var values = _commentService.TGetCommentsByBlogId(id);
-            ViewBag.commentSum = _commentService.TSumComments();
+            ViewBag.commentSum = _commentService.TSumComments(id);
             return View(values);
         }
 

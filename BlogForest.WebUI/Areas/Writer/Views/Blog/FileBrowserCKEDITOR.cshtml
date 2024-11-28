@@ -1,0 +1,37 @@
+﻿@using System.IO
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment _hostingEnviroment
+
+<head>
+    <link href="~/ruang-admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="~/ruang-admin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/js/ckeditor/ckeditor.js"></script>
+    <script>
+        var funcNum = @(Context.Request.Query["CKEditorFuncNum"]+";");
+        $("#fileExplorer").on('click', 'img', function () {
+            var fileUrl = '~/uploads/' + $(this).attr('title')
+
+            window.opener.CKEDITOR.tools.callFunction(funcNum, fileUrl);
+            window.close();
+        }).hover(function () {
+            $(this).css('cursor', 'pointer');
+        });
+    </script>
+</head>
+<div class="container mt-4">
+    <h3 class="text-center mb-4">Yüklenen Resimler</h3>
+    <div class="row">
+        @foreach (var item in ViewBag.fileInfo) // Model bir liste olarak resim URL'lerini içeriyor.
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <img src="~/uploads/@item.Name" class="card-img-top" alt="@item.Name">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center">
+                            <a href="~/uploads/@item.Name" class="btn btn-primary btn-sm me-2" target="_blank">Görüntüle</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

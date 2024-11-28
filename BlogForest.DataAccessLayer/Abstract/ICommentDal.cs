@@ -10,6 +10,8 @@ namespace BlogForest.DataAccessLayer.Abstract
     public interface ICommentDal:IGenericDal<Comment>
     {
         List<Comment> GetCommentsByBlogId(int id);
-        int SumComments();
+        int SumComments(int id);
+
+        List<Comment> GetCommentWithBlog();
     }
 }
