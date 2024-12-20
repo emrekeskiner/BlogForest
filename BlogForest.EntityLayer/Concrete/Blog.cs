@@ -17,6 +17,6 @@
         public int AppUserId { get; set; }
         public AppUser AppUser { get; set; }
 
-        public Comment Comment { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }

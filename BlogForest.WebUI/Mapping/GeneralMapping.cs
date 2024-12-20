@@ -20,6 +20,7 @@ namespace BlogForest.WebUI.Mapping
             CreateMap<Issue, UpdateWriterIssueDto>().ReverseMap();
 
             CreateMap<Comment, ResultCommentDto>().ForMember(dest=> dest.BlogTitle, opt => opt.MapFrom(src =>src.Blog.Title));
+            CreateMap<Comment, CreateCommentDto>().ReverseMap();
         }
     }
 }

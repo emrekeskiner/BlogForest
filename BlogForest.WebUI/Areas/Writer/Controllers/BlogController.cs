@@ -31,7 +31,7 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
 
         public async Task<IActionResult> MyBlogs()
         {
-
+            
 
             if (User.Identity!.IsAuthenticated)
             {

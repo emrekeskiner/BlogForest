@@ -2251,8 +2251,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\" />
-    <Folder Include="Areas\User\Data\" />
-    <Folder Include="Areas\User\Models\" />
     <Folder Include="Areas\Writer\Models\" />
     <Folder Include="Areas\Writer\ToDo\" />
     <Folder Include="Areas\Writer\ViewComponents\" />

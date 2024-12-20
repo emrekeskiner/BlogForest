@@ -1,0 +1,15 @@
+﻿
+
+<div class="custombox clearfix">
+    <h4 class="small-title">Yorum</h4>
+    <div class="row">
+        <div class="col-lg-12">
+            <form class="form-wrapper" method="post" asp-controller="Comments" asp-action="CreateComment">
+                <input type="hidden" name="BlogId" value="@ViewBag.Id" />
+                <input type="text" name="NameSurname" class="form-control" placeholder="Ad, Soyad">
+                <textarea class="form-control" name="Detail" placeholder="Yorumunuz"></textarea>
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
