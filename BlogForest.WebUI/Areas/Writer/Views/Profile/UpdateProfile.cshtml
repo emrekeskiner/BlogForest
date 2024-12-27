@@ -1,0 +1,72 @@
+﻿@model UpdateUserDto
+
+@{
+    ViewData["Title"] = "Profil Bilgileri";
+    Layout = "~/Views/Layout/_WriterLayout.cshtml";
+}
+
+
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+                <!-- Left Side: Form Fields -->
+                <div class="col-md-6">
+                    <div>
+                        <div class="text-danger" asp-validation-summary="All"></div>
+                    </div>
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label for="Name" class="form-label">Ad</label>
+                        <input type="text" asp-for="Name" class="form-control" placeholder="Adınızı girin" required>
+                    </div>
+
+                    <!-- Surname -->
+                    <div class="mb-3">
+                        <label for="Surname" class="form-label">Soyad</label>
+                        <input type="text" asp-for="Surname" class="form-control" placeholder="Soyadınızı girin" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Email" class="form-label">E-Mail</label>
+                        <input type="text" asp-for="Email" class="form-control" placeholder="Mail Adresiniz" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Password" class="form-label">Şifre</label>
+                        <input type="password" asp-for="Password" class="form-control" placeholder="Şifre" required>
+                    </div>
+                </div>
+
+                <!-- Right Side: Image Section -->
+                <div class="col-md-6 text-center">
+                    <!-- Current Image Display -->
+                    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                    {
+                        <div class="mb-3">
+                            <label for="currentImage" class="form-label">Mevcut Profil Resmi</label>
+                            <div>
+                                <img src="@Model.ImageUrl" alt="Profil Resmi" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                                <input type="hidden" asp-for="ImageUrl" />
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Image Upload -->
+                    <div class="mb-3">
+                        <label for="imageUrl" class="form-label">Yeni Profil Resmi</label>
+                        <input type="file" asp-for="Image" class="form-control">
+                        <small class="text-muted">Desteklenen formatlar: jpg, png, jpeg.</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Güncelle</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

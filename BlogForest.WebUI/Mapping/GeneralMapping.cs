@@ -2,6 +2,7 @@
 using BlogForest.DtoLayer.BlogDtos;
 using BlogForest.DtoLayer.CommentDto;
 using BlogForest.DtoLayer.IssueDto;
+using BlogForest.DtoLayer.UserDtos;
 using BlogForest.EntityLayer.Concrete;
 
 namespace BlogForest.WebUI.Mapping
@@ -21,6 +22,7 @@ namespace BlogForest.WebUI.Mapping
 
             CreateMap<Comment, ResultCommentDto>().ForMember(dest=> dest.BlogTitle, opt => opt.MapFrom(src =>src.Blog.Title));
             CreateMap<Comment, CreateCommentDto>().ReverseMap();
+            CreateMap<AppUser,UpdateUserDto>().ReverseMap();
         }
     }
 }

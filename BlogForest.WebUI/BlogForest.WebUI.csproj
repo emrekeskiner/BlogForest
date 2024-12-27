@@ -2255,6 +2255,7 @@
     <Folder Include="Areas\Writer\ToDo\" />
     <Folder Include="Areas\Writer\ViewComponents\" />
     <Folder Include="Areas\Writer\Views\Shared\Components\" />
+    <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\ruang-admin\.git\objects\info\" />
     <Folder Include="wwwroot\ruang-admin\.git\objects\pack\" />
     <Folder Include="wwwroot\ruang-admin\.git\refs\tags\" />

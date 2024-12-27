@@ -36,7 +36,7 @@ namespace BlogForest.WebUI.Controllers
             var result =await _userManager.CreateAsync(appUser, createRegisterDto.Password);
             if (result.Succeeded) 
             { 
-            return RedirectToAction("Index", "Default");
+            return RedirectToAction("Index", "Default", new {area="Writer"});
             }
             return View();
         }

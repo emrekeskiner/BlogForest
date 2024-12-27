@@ -21,7 +21,26 @@
                     <li class="nav-item">
                         <a class="nav-link color-green-hover" asp-action="Contact" asp-controller="Default">Bize Yazın</a>
                     </li>
-                 </ul>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link color-green-hover" asp-controller="Blog" asp-action="MyBlogs" asp-area="Writer">Bloglarım</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link color-green-hover" asp-controller="Login" asp-action="LogOut">Çıkış Yap</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link color-green-hover" asp-action="Index" asp-controller="Login">Yazar Giriş</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link color-green-hover" asp-action="CreateUser" asp-controller="Register">Kayıt Ol</a>
+                        </li>
+                    }
+
+                </ul>
             </div>
         </nav>
     </div><!-- end container -->
