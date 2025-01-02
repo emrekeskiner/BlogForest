@@ -35,8 +35,32 @@ namespace BlogForest.WebUI.Controllers
 
             var result =await _userManager.CreateAsync(appUser, createRegisterDto.Password);
             if (result.Succeeded) 
-            { 
-            return RedirectToAction("Index", "Default", new {area="Writer"});
+            {
+                //Rol ekleme işlemi
+                var roleResult = await _userManager.AddToRoleAsync(appUser, "Writer");
+
+                if (roleResult.Succeeded)
+                {
+                    //Rol ekleme işlemi başarılı ise
+                    return RedirectToAction("Index", "Default", new { area = "Writer" });
+                }
+                else
+                {
+                    foreach (var error in roleResult.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+
+
+            }
+            else
+            {
+                //kullanıcı ekleme işlemi başarısız ise
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
             }
             return View();
         }
