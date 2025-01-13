@@ -4,6 +4,7 @@ using BlogForest.DtoLayer.BlogDtos;
 using BlogForest.DtoLayer.CommentDto;
 using BlogForest.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogForest.WebUI.Areas.Writer.Controllers
@@ -15,18 +16,25 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
     {
         private readonly ICommentService _commentService;
         private readonly IMapper _mapper;
+        private readonly UserManager<AppUser> _userManager;
 
-        public CommentsController(ICommentService commentService, IMapper mapper)
+        public CommentsController(ICommentService commentService, IMapper mapper, UserManager<AppUser> userManager)
         {
             _commentService = commentService;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         public IActionResult CommentsList()
         {
-            
-            var values = _commentService.TGetCommentWithBlog().ToList();
-           var commentValues = _mapper.Map<List<ResultCommentDto>>(values);
+            var userId =int.Parse(_userManager.GetUserId(User));
+
+
+            var values = _commentService.TGetCommentWithBlog()
+                .Where(x => x.Blog.AppUserId == userId)
+                .ToList();
+
+            var commentValues = _mapper.Map<List<ResultCommentDto>>(values);
             return View(commentValues);
         }
 

@@ -42,7 +42,7 @@ namespace BlogForest.WebUI.Areas.Admin.Controllers
             var result = await _roleManager.CreateAsync(appRole);
             if (result.Succeeded)
             {
-                return RedirectToAction("UserList", "Role", new { area = "Admin" });
+                return RedirectToAction("RoleList", "Role", new { area = "Admin" });
             }
             return View();
         }
@@ -55,7 +55,7 @@ namespace BlogForest.WebUI.Areas.Admin.Controllers
                 await _roleManager.DeleteAsync(value);
             }
 
-            return RedirectToAction("UserList", "Role", new { area = "Admin" });
+            return RedirectToAction("RoleList", "Role", new { area = "Admin" });
         }
 
         [HttpGet]
@@ -76,7 +76,7 @@ namespace BlogForest.WebUI.Areas.Admin.Controllers
             var value = _roleManager.Roles.FirstOrDefault(x => x.Id == updateRoleViewModel.RoleId);
             value.Name = updateRoleViewModel.RoleName;
             await _roleManager.UpdateAsync(value);
-            return RedirectToAction("UserList", "Role", new { area = "Admin" });
+            return RedirectToAction("RoleList", "Role", new { area = "Admin" });
         }
 
         public IActionResult UserList()

@@ -38,7 +38,7 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Default");
+            return RedirectToAction("Index", "Login");
         }
 
     }

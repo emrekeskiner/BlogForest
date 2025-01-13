@@ -1,9 +1,7 @@
 3- admin ekranýnda blog yönetimi
 4- admin ekranýnda category yönetimi
 5- admin ekranýnda issue onay ekraný
-6- admin ekranýnda writer yönetimi
 8- Seo Url yapma
-9- Çýkýþ iþlemleri
 
 
 
