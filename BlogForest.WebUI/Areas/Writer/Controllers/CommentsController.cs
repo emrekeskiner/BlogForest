@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace BlogForest.WebUI.Areas.Writer.Controllers
 {
     [Area("Writer")]
-    [Route("Writer/[controller]/[action]")]
     [Authorize]
     public class CommentsController:Controller
     {
@@ -38,7 +37,7 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
             return View(commentValues);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public IActionResult ChangeStatusComment(int id)
         {
             var comment = _commentService.TGetById(id);

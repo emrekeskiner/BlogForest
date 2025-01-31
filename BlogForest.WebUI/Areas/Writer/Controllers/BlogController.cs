@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace BlogForest.WebUI.Areas.Writer.Controllers
 {
     [Area("Writer")]
-    [Route("Writer/[controller]/[action]")]
+    
     [Authorize]
     public class BlogController : Controller
     {
@@ -106,7 +106,7 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
             return RedirectToAction("MyBlogs", "Blog", new { area = "Writer" });
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public IActionResult UpdateMyBlog(int id)
         {
             List<SelectListItem> category = (from i in _categoryService.TGetListAll()
@@ -123,7 +123,7 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
 
             return View(updateBlog);
         }
-        [HttpPost("{id}")]
+        [HttpPost]
         public IActionResult UpdateMyBlog(UpdateBlogDto updateBlogDto)
         {
             var blog = _mapper.Map<Blog>(updateBlogDto);
@@ -132,7 +132,7 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
 
             return RedirectToAction("MyBlogs", "Blog", new { area = "Writer" });
         }
-        [HttpGet("{id}")]
+        [HttpGet]
         public IActionResult DeleteMyBlog(int id)
         {
           
@@ -140,7 +140,7 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
             return RedirectToAction("MyBlogs", "Blog", new { area = "Writer" });
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public IActionResult ChangeStatusMyBlog(int id)
         {
             var getBlog= _blogService.TGetById(id);

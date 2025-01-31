@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace BlogForest.WebUI.Areas.Writer.Controllers
 {
     [Area("Writer")]
-    [Route("Writer/[controller]/[action]")]
     [Authorize]
     public class IssueController:Controller
     {
