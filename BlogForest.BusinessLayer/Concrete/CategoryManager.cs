@@ -21,7 +21,7 @@ namespace BlogForest.BusinessLayer.Concrete
 
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+           _categoryDal.Delete(id);
         }
 
         public Category TGetById(int id)
@@ -36,12 +36,12 @@ namespace BlogForest.BusinessLayer.Concrete
 
         public void TInsert(Category entity)
         {
-            throw new NotImplementedException();
+           _categoryDal.Insert(entity);
         }
 
         public void TUpdate(Category entity)
         {
-            throw new NotImplementedException();
+            _categoryDal.Update(entity);
         }
     }
 }

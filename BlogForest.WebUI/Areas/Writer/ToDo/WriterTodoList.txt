@@ -1,7 +1,4 @@
-3- admin ekranında blog yönetimi
-4- admin ekranında category yönetimi
-5- admin ekranında issue onay ekranı
-8- Seo Url yapma
+
 
 
 

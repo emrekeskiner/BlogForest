@@ -1,0 +1,38 @@
+﻿@model UpdateAdminIssueDto
+@{
+    ViewData["Title"] = "Sorun Yanıtla";
+    Layout = "~/Views/Layout/_WriterLayout.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="post">
+
+                <input type="hidden" class="form-control" asp-for="IssueId">
+
+
+            <div class="form-group">
+                <label for="response">Yanıt</label>
+                <textarea class="form-control" asp-for="Response" id="response" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="resolutionDetails">Çözüm Detayları</label>
+                <textarea class="form-control" asp-for="ResolutionDetails" id="resolutionDetails" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="resolvedAt">Çözülme Tarihi</label>
+                <input type="datetime-local" class="form-control" asp-for="ResolvedAt" id="resolvedAt">
+            </div>
+
+            <div class="form-group">
+                <label for="adminComments">Yönetici Yorumları</label>
+                <textarea class="form-control" asp-for="AdminComments" id="adminComments" rows="3"></textarea>
+            </div>
+
+            <button class="btn btn-primary">Kaydet</button>
+        </form>
+    </div>
+</div>
+

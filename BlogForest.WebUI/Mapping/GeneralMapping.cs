@@ -19,6 +19,7 @@ namespace BlogForest.WebUI.Mapping
      .ForMember(dest => dest.AdminFullName, opt => opt.MapFrom(src => src.AdminUser != null ? src.AdminUser.Name + " " + src.AdminUser.Surname : null));
             CreateMap<Issue, CreateWriterIssueDto>().ReverseMap();
             CreateMap<Issue, UpdateWriterIssueDto>().ReverseMap();
+            CreateMap<Issue, UpdateAdminIssueDto>().ReverseMap();
 
             CreateMap<Comment, ResultCommentDto>().ForMember(dest=> dest.BlogTitle, opt => opt.MapFrom(src =>src.Blog.Title));
             CreateMap<Comment, CreateCommentDto>().ReverseMap();

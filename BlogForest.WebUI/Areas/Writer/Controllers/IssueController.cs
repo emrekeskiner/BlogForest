@@ -65,5 +65,7 @@ namespace BlogForest.WebUI.Areas.Writer.Controllers
 
             return RedirectToAction("IssueList","Issue", new {area="Writer"});
         }
+
+       
     }
 }
